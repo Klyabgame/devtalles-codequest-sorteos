@@ -3,25 +3,30 @@ import ListaSorteos from "./components/ListaSorteos";
 import Loading from "../loading";
 import { Page404 } from "../components/Page404";
 
-async function getSorteosList() {
-  const res = await fetch(`${process.env.BACKEND_URL}/api/sorteo`, { cache: "no-store" });
+async function getServerSideProps() {
+  const res = await fetch(`/api/sorteo`, { cache: "no-store" });
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
 
-  return res.json();
+  const sorteos = await res.json();
+
+  return {
+    props: {
+      sorteos: sorteos.sorteoData,
+    },
+  };
 }
 
-export default async function Dashboard() {
-  const sorteos = await getSorteosList();
+export default async function Dashboard({sorteos}) {
   const renderDontUser = () => <Page404 />;
   return (
     <div>
       <>
         <Suspense fallback={<Loading />}>
           <div className="w-full">
-            <ListaSorteos sorteos={sorteos.sorteoData} />
+          {sorteos && <ListaSorteos sorteos={sorteos} />}
           </div>
         </Suspense>
       </>

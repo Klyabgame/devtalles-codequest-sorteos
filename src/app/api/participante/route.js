@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "../mongo";
 
+
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
   const take = Number(searchParams.get("take") ?? "10");

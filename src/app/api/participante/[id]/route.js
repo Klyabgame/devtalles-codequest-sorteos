@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "../../mongo";
 
 export async function DELETE(req, { params }) {
-  const { id } = params;
+  const { id } = await params;
 
   try {
     const deleteParticipante = await prisma.participante.delete({
