@@ -15,7 +15,6 @@ const Sorteos = ({ sorteos }) => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

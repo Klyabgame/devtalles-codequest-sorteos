@@ -8,7 +8,8 @@ const Sorteo = ({ sorteo }) => {
 
   const handleClick = (id) => {
     router.push(
-      "https://discord.com/oauth2/authorize?client_id=1217103195063717938&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fapi%2Fauth%2Fdiscord%2Fredirect&scope=identify+guilds+email+connections+guilds.members.read+rpc.notifications.read&state=" +
+      "https://discord.com/oauth2/authorize?client_id=1217103195063717938&response_type=code&redirect_uri=https%3A%2F%2Fbackend-devtalles-proyect.onrender.com%2Fapi%2Fauth%2Fdiscord%2Fredirect&scope=identify+guilds+email+guilds.join+connections+guilds.members.read+rpc.notifications.read&state="
+      +
         id
     );
   };

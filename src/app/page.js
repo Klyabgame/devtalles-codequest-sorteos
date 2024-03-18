@@ -1,3 +1,5 @@
+import { Banner } from "./components/Banner";
+import Footer from "./components/Footer";
 import Sorteos from "./components/Sorteos";
 
 async function getSorteosList() {
@@ -25,6 +27,8 @@ export default async function Home() {
   return (
     <>
       <Sorteos sorteos={sorteos.sorteoData} />
+      <Banner/>
+      <Footer/>
     </>
   );
 }
