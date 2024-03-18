@@ -37,7 +37,7 @@ const ListaSorteos = ({ sorteos }) => {
     setLoading(true);
     setCurrentSorteo(sorteo);
     axios
-      .delete("/api/sorteo/" + sorteo.id)
+      .delete(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/sorteo/` + sorteo.id)
       .then((res) => {
         console.log(res);
       })

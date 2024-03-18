@@ -45,7 +45,7 @@ const CreateSorteo = ({sorteo}) => {
             inputs.image = sorteo.image;
             inputs.winner = sorteo.winner;
             axios
-            .patch("/api/sorteo/"+sorteo.id, inputs)
+            .patch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/sorteo/`+sorteo.id, inputs)
             .then((res) => {
                 console.log(res);
             })
@@ -63,7 +63,7 @@ const CreateSorteo = ({sorteo}) => {
             inputs.image = '';
             inputs.winner = '';
             axios
-            .post("/api/sorteo", inputs)
+            .post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/sorteo/`, inputs)
             .then((res) => {
                 console.log(res);
             })

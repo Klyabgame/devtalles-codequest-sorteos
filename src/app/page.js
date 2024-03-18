@@ -1,25 +1,21 @@
 import Sorteos from "./components/Sorteos";
 
-async function getServerSideProps() {
-  const res = await fetch(`/api/sorteo`, { cache: "no-store" });
+async function getSorteosList() {
+  const res = await fetch(`${process.env.BACKEND_URL}/api/sorteo`, { cache: "no-store" });
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
 
-  const sorteos = await res.json();
-
-  return {
-    props: {
-      sorteos: sorteos.sorteoData,
-    },
-  };
+  return res.json();
 }
 
-export default async function Home({sorteos}) {
+export default async function Home() {
+  const sorteos = await getSorteosList();
+
   return (
     <>
-      {sorteos && <Sorteos sorteos={sorteos} />}
+      <Sorteos sorteos={sorteos.sorteoData} />
     </>
   );
 }
