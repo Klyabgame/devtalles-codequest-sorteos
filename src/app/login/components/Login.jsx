@@ -20,6 +20,7 @@ const Login = () => {
           "Content-type": "application/json",
         },
         body: JSON.stringify({ email, password }),
+        credentials:'include'
       }).then((response) => response.json());
 
       if (response.error) {

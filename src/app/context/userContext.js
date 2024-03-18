@@ -12,7 +12,7 @@ export function UserContextProvider({ children }) {
         method: "GET",
         headers: {
           "Content-type": "application/json",
-        },
+        },credentials:'include'
       })
         .then((response) => response.json())
         .then((data) => setUser(data))

@@ -66,7 +66,7 @@ const ListaSorteos = ({ sorteos }) => {
     inputs.winner = winner.username;
 
     axios
-      .patch("/api/sorteo/" + sorteo.id, inputs)
+      .patch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/sorteo/` + sorteo.id, inputs)
       .then((res) => {
         console.log(res);
       })
